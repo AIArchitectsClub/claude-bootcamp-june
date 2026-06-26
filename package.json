@@ -1,0 +1,29 @@
+{
+  "name": "tennis-booking",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n client,server -c cyan,green \"vite\" \"cd server && npm run dev\"",
+    "dev:client": "vite",
+    "dev:server": "cd server && npm run dev",
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "better-auth": "^1.6.21",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "concurrently": "^10.0.3",
+    "oxlint": "^1.69.0",
+    "tailwindcss": "^4.3.1",
+    "vite": "^8.1.0"
+  }
+}

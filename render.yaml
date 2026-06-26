@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: tennis-booking
+    runtime: node
+    buildCommand: npm install && npm run build && cd server && npm install
+    startCommand: node --use-system-ca server/index.js
+    healthCheckPath: /api/auth/ok
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false        # set in Render dashboard — your Neon connection string
+      - key: BETTER_AUTH_SECRET
+        sync: false        # set in Render dashboard — keep the same value as local
+      - key: BETTER_AUTH_URL
+        sync: false        # set to your Render service URL, e.g. https://tennis-booking.onrender.com
+      - key: CLIENT_URL
+        sync: false        # same as BETTER_AUTH_URL for a single-service deploy
