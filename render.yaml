@@ -2,12 +2,10 @@ services:
   - type: web
     name: tennis-booking
     runtime: node
-    buildCommand: npm install && npm run build && cd server && npm install
-    startCommand: node --use-system-ca server/index.js
+    buildCommand: npm install --include=dev && npm run build && cd server && npm install
+    startCommand: NODE_ENV=production node --use-system-ca server/index.js
     healthCheckPath: /api/auth/ok
     envVars:
-      - key: NODE_ENV
-        value: production
       - key: DATABASE_URL
         sync: false        # set in Render dashboard — your Neon connection string
       - key: BETTER_AUTH_SECRET
